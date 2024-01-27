@@ -31,10 +31,11 @@ type Post = {
 const fetchPosts = async (): Promise<Post[]> => {
     try {
         const res = await fetch(API);
+        const data = await res.json();
         if (!res.ok) {
             throw new Error('Failed to fetch posts');
         }
-        const data = await res.json();
+
         return data;
     } catch (error) {
         console.error('Error fetching posts:', error);
@@ -55,7 +56,7 @@ export default function Page() {
                 setShowPosts(data);
                 setLoading(false);
             })
-            .catch((error) => {
+            .catch(() => {
                 setLoading(false);
             });
     }, []);
@@ -93,7 +94,7 @@ export default function Page() {
             y:30,
             opacity:0
         })
-        gsap.to('.itemlist',1,{
+        gsap.to('.itemlist',{
             y:0,
             opacity:1,
             ease:'expo.out',

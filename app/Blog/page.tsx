@@ -30,7 +30,7 @@ type Post = {
 }
 const fetchPosts = async (): Promise<Post[]> => {
     try {
-        const res = await fetch(API);
+        const res = await fetch('http://torio-blog.local/wp-json/wp/v2/posts');
         const data = await res.json();
         if (!res.ok) {
             throw new Error('Failed to fetch posts');

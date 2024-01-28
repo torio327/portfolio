@@ -20,7 +20,7 @@ export default function Page() {
         setLoad(true);
 
 
-        emailjs.sendForm('React-form', 'React-form', form.current, process.env.NEXT_PUBLIC_PUBLICKEY)
+        emailjs.sendForm('React-form', 'React-form', form.current, 'bBatY4_uRtohI25vW')
             .then((result) => {
                 setLoad(false);
                 console.log(result.text);

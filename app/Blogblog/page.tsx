@@ -27,17 +27,17 @@ const fetchPost = async (id: number): Promise<Post> => {
 
 const Page= () => {
     const [post, setPost] = useState<Post | null>(null);
-    const num =localStorage.getItem("Input")
-    if (num !==null){
-        const numValue:number=parseInt(num,10);
+    const num = localStorage.getItem("Input");
 
-        useEffect(() => {
+    useEffect(() => {
+        if (num !== null) {
+            const numValue: number = parseInt(num, 10);
             fetchPost(numValue).then((data) => {
                 setPost(data);
                 console.log(data); // データが取得されたらログに出力
             });
-        }, [numValue]);
-    }
+        }
+    }, [num]);
 
 
 

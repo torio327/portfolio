@@ -5,8 +5,8 @@ import Link from "next/link";
 import Footer from "@/app/Components/Footer";
 import MotionWrapper from "@/app/Components/MotionWrapper";
 import {Cousine, Klee_One} from "next/font/google";
-import {gsap} from "gsap";
-
+/* import {gsap} from "gsap";
+*/
 const API:any=process.env.NEXT_PUBLIC_API_BASE_URL
 
 const KleeOne = Klee_One({
@@ -90,6 +90,7 @@ export default function Page() {
     const move = (kazu: number) => {
         localStorage.setItem("Input", String(kazu))
     }
+    /*
         gsap.set('.itemlist',{
             y:30,
             opacity:0
@@ -103,7 +104,7 @@ export default function Page() {
                 from:'start'
             }
         })
-
+*/
 
     return (
         <div className={"back"}><MotionWrapper>

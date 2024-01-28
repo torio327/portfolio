@@ -27,7 +27,7 @@ const fetchPost = async (id: number): Promise<Post> => {
 
 const Page= () => {
     const [post, setPost] = useState<Post | null>(null);
-    const num = localStorage.getItem("Input");
+    const num = typeof window !== 'undefined' ? localStorage.getItem("Input") : null;
 
     useEffect(() => {
         if (num !== null) {
